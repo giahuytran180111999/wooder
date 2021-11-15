@@ -1,0 +1,27 @@
+.navbar{
+	z-index: 200;
+	position: fixed;
+	width: 100vw;
+	height: calc(100vh - var(--height-header));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	opacity: 0;
+	pointer-events: none;
+	background: $gray-color-dark;
+	left: 0;
+	transform: translateX(100%);
+	@include transition(0.8s);
+		a{
+			color: $white-cl;	
+			padding: 15px 25px;
+		}
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+		@include transition(0.8s);
+		transform: translateX(0%);
+	}
+	
+}

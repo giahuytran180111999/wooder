@@ -1,0 +1,191 @@
+
+.header {
+	position: relative;
+	height: var(--height-header);
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 500;
+	background: rgb(0,0,0);
+	@include transition(1s);
+	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(9,9,9,1) 100%);
+	&.active{
+		background: linear-gradient(0deg, rgba(0,0,0,.5) 0%, rgba(9,9,9,0.9458158263305322) 100%);
+		@include transition(1s);
+		height: 60px;
+	}
+	&-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		position: relative;
+	}
+	&-logo {
+		height: 100%;
+		a {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include transition(0.4s);
+			&:hover{
+				opacity: 0.5;
+				@include transition(0.4s);
+			}
+		}
+	}
+	.menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		gap: 0 70px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		&-link {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			color: $white-color;
+			transition: 0.2s linear;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			opacity: 0.5;
+			@include transition(0.4s);
+			&.active{
+				color: $primary-color;
+				opacity: 1;
+				border-bottom: 2px solid $primary-color;
+			}
+			&:hover {
+				color: $primary-color;
+				@include transition(0.4s);
+				opacity: 1;
+			}
+		}
+	}
+	&-right {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&-lang {
+		height: 100%;
+		position: relative;
+		@include transition(1s);
+
+		&:hover .header-sublang {
+			display: block;
+			@include transition(1s);
+		}
+	}
+	&-current {
+		display: flex;
+		align-items: center;
+		color: $white-color;
+		font-size: 1.6rem;
+		gap: 0 6px;
+		cursor: pointer;
+		height: 100%;
+		letter-spacing: 0.05em;
+		opacity: 0.5;
+		&:hover {
+			color: $primary-color;
+			@include transition(0.4s);
+			opacity: 1;
+		}
+		i {
+			img {
+				@include transform(translateY(-50%));
+			}
+		}
+	}
+	&-sublang {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background-color: $black-color;
+		& a {
+			font-size: 1.6rem;
+			color: $white-color;
+			padding: 30px 30px;
+			border-bottom: 2px solid $gray-color-dark;
+			transition: all 0.3s linear;
+			&:last-child {
+				border: none;
+			}
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+	@include sm {
+		.menu {
+			gap: 0 20px;
+			left: 60%;
+			transform: translateX(-60%);
+			padding-left: 60px;
+		}
+	}
+	@include xs {
+		background: black;
+		position: fixed;
+		.menu {
+			display: none;
+		}
+		&-right {
+			gap: 0 15px;
+		}
+		&-hamburger {
+			width: 30px;
+			height: 20px;
+			position: relative;
+			span {
+				width: 100%;
+				height: 2px;
+				background-color: $primary-color;
+				display: block;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&:before,
+			&:after {
+				content: ' ';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: $primary-color;
+				left: 0;
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 0;
+			}
+			&.active{
+				&::before{
+					transform: rotate(45deg) translate(9px ,4px);
+					@include transition($t);
+				}
+				span{
+					opacity: 0;
+					@include transition($t);
+				}
+				&::after{
+					transform: rotate(-45deg) translate(9px ,-4px);
+					@include transition($t);
+					bottom: 0;
+				}
+			}
+		}
+	}
+	
+}
+
