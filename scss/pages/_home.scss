@@ -6,6 +6,7 @@
 	}
 	&-item {
 		height: 100%;
+		display: block;
 		display: none;
 		&.active{
 			display: block;
@@ -265,7 +266,7 @@
 
 .banner{
 	overflow: hidden;
-	background:  url(/img/banner.jpg);
+	background-image: url(/img/banner.jpg);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -587,6 +588,9 @@
 		border: none;
 		text-align: left;
 		outline: none;
+		font-family: $font-pr;
+		color: $gray-color-darkest;
+		line-height: 2.2rem;
 		@include transition($t);
 	  }
 	  .active,
@@ -614,5 +618,35 @@
 		}
 	  }
 }
+/* external css: flickity.css, fullscreen.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
 
 
+
+.carousel-image {
+  display: block;
+  height: 300px;
+  /* set min-width, allow images to set cell width */
+  min-width: 150px;
+  max-width: 100%;
+  margin-right: 10px;
+  /* vertically center */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: $t;
+  &:hover{
+	  background-color: black;
+	  opacity: 0.7;
+  }
+}
+
+.carousel.is-fullscreen .carousel-image {
+  height: auto;
+  max-height: 100%;
+}
+.flick{
+	padding-bottom: var(--pd-section);
+}

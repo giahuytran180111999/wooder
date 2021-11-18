@@ -255,12 +255,11 @@ const menus = document.querySelectorAll("header .menu a");
   //   contain: true,
   //   wrapAround: true,
   //   prevNextButtons: false,
-  //   on : {
-  //     ready: function (){
-  //       let dotted = $('.flickity-page-dot');
-  //       paging = $('.')
-  //     },
-  //   }
+  //   // on : {
+  //   //   ready: function (){
+    //     let dotted = $('.flickity-page-dot');
+    //     paging = $('.')
+    //   },
   // });
 
   // //next-prev
